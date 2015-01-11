@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+
+    <title>My First BMW App</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
+</head>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://s3.amazonaws.com/mojio_cdn/mojio-js.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="src/myFirstBMWApp.js"></script>
+
+<div id="loginResult"></div>
+<hr />
+
+<input type="button" value="Get Apps" onclick="showApps()">
+<input type="button" value="Get Vehicles" onclick="showVehicles()">
+
+<div id="resultDiv"></div>
+<select id="mySelect", size="0"></select><br>
+<input type="button" value="Listen" onclick="listenApp()">
+<div id="listenAppDiv"></div>
+<hr />
+
+<div id="resultDiv2"></div>
+<select id="mySelect2", size="0"></select><br>
+<input type="button" value="Listen" onclick="listenVehicle()">
+<div id="listenVehicleDiv"></div>
+<hr />
+
+</html>
