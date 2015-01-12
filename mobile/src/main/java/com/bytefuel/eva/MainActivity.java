@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
 
-    private static final int DELAY_MILLIS = 6500;
+    private static final int DELAY_MILLIS = 5500;
     private static final int NOTIF_ID = 1001;
     private static final String[] ALERTS = {"Fog Alert !", "Accident ahead !", "Road closure !"};
     private static final String[] ALERT_FOOTNOTE = {"Fog 50 feet ahead.",
@@ -93,6 +93,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+        mHandler.postDelayed(mFreshAlertRunnable, DELAY_MILLIS);
     }
 
     private void createBitmapArray() {
@@ -241,6 +242,12 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacks(mFreshAlertRunnable);
     }
 
 }
